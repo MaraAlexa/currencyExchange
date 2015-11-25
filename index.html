@@ -14,8 +14,12 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- google youtube webcomponents-->
+    <link rel="import" href="bower_components/google-youtube/google-youtube.html" media="screen" title="no title" charset="utf-8">
+
     <!-- Custom CSS -->
     <link href="css/agency.css" rel="stylesheet">
+
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -23,6 +27,18 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Neccesary JS scripts -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Two way binding js scripts -->
+    <script src="bower_components/2w/lib/2w.js"></script>
+
+    <script src="js/twoWayDataBinding.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,7 +83,7 @@
                     </li>
 
                     <li>
-                        <a class="page-scroll" href="#how-it-works">How it works</a>
+                        <a class="page-scroll" href="#testimonials">Testimonials</a>
                     </li>
 
                     <li>
@@ -88,7 +104,7 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-heading">The currency experts</div>
+                <div class="intro-heading">Banking Reinvented</div>
                 <div class="intro-lead-in">Companies save 30 to 40% on currency transactions</div>
                 <a href="#login" class="page-scroll btn btn-xl">Get Started / Login</a>
                 <br>
@@ -109,14 +125,15 @@
             </div>
             <div class="row text-center">
 
-                <div class="col-lg-6">
-                    <h4>See how much you can save with us</h4>
+            <div class="col-lg-6">
+                    <h4>We garantee the best trade</h4>
                     <br>
+                <div id="name" data-controller="quickdemo">
 
-                    <div class="input-group">
-                      <input type="text" class="form-control" aria-label="..." placeholder="You're sending exactly">
+                    <div class="input-group" >
+                        <input  type="text" data-model="name" class="form-control" id='input' placeholder="You're sending exactly">
                       <div class="input-group-btn">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-euro"></span> EUR <span class="caret"></span></button>
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-euro"></span> EUR <span class="caret"></span></button>
                         <ul class="dropdown-menu dropdown-menu-right">
                           <li><a href="#"><span class="glyphicon glyphicon-euro"></span> EUR euro</a></li>
                           <li><a href="#"><span class="glyphicon glyphicon-usd"></span> USD dollar</a></li>
@@ -125,29 +142,34 @@
                         </ul>
                       </div><!-- /btn-group -->
                     </div><!-- /input-group -->
-                    <br>
-                    <br>
+                      <br>
+                      <br>
                     <div class="input-group">
-                      <input type="text" class="form-control" aria-label="..." placeholder="Recipient receives">
+                      <input type="text" data-model="{{ dollar(name)}}" name='output' id="output" class="form-control" placeholder="Recipient receives">
                       <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-usd"></span> USD <span class="caret"></span></button>
                         <ul class="dropdown-menu dropdown-menu-right">
                           <li><a href="#"><span class="glyphicon glyphicon-usd"></span> USD dollar</a></li>
                           <li><a href="#"><span class="glyphicon glyphicon-gbp"></span> GBP pound</a></li>
                           <li><a href="#"><span class="glyphicon glyphicon-yen"></span> YEN yen</a></li>
+                          <li><a href="#"><span class="glyphicon glyphicon-euro"></span> EUR euro</a></li>
                         </ul>
                       </div><!-- /btn-group -->
                     </div><!-- /input-group -->
                     <p style="margin-top: 10px"> Real exchange rate: 1.0661 ( 9 minutes ago )</p>
-                    <p> Our Fee: $ 4.95</p>
-                </div><!-- /.col-lg-6 -->
+                    <p> Our Fee: $ 0</p>
+
+                </div>
+
+
+            </div><!-- /.col-lg-6 -->
 
                 <div class="col-md-6">
                     <h4>Compare NBWM to your average bank </h3>
                     <br>
                     <div class="col-md-6">
                         <h6>Our Fees</h6>
-                        <p style='color: rgb(22, 160, 133)'>$ 4.95</p>
+                        <p style='color: rgb(22, 160, 133)'>$ 0</p>
                         <h6>Our exchange rates</h6>
                         <p style='color: rgb(22, 160, 133)'><i class="fa fa-eur"></i> 1 = <i class='fa fa-usd'></i> 1.07</p>
                         <hr>
@@ -196,6 +218,157 @@
         </div>
     </div>
    </section>
+
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Testimonials</h2>
+                    <h3 class="section-subheading text-muted">What our customers say about our services.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                      <google-youtube video-id="M6qMKpupAT4" height="270px" width="480px" rel="0" start="5" autoplay="0">
+                      </google-youtube>
+                      <h4>Ira Jackson</h4>
+                      <p class="text-muted">Lead Marketer</p>
+                      <ul class="list-inline social-buttons">
+                          <li><a href="#"><i class="fa fa-twitter"></i></a>
+                          </li>
+                          <li><a href="#"><i class="fa fa-facebook"></i></a>
+                          </li>
+                          <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                          </li>
+                      </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                      <google-youtube video-id="ufJwn79JFyw" height="270px" width="480px" rel="0" start="5" autoplay="0">
+                      </google-youtube>
+                        <h4> Jan van Boorn</h4>
+                        <p class="text-muted">Lead Marketer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                      <google-youtube video-id="hSnD30bcAS8" height="270px" width="480px" rel="0" start="5" autoplay="0">
+                      </google-youtube>
+                        <h4>Pieter Pertersen</h4>
+                        <p class="text-muted">Lead Marketer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">About Us</h2>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/kantoor.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="subheading">Our Beginnings</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">We saw the need for a platform  that can provide a unique combination of services of unparalleled quality at a much lower price. We started from the idea of putting the needs of the custumers first and buid a platform that delivers taylor made solutions for each client. Thus we have combined our expertise of the currency exchange markets with high responsiveness, competitive pricing and unique custumer engagement.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2014</h4>
+                                    <h4 class="subheading">Our Company is Born</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">We started Europe’s premier FINTECH company fully licensed under European
+regulation to offer payment services, conversions, as well as trading and
+investment services to businesses and private clients</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/our-values.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Our values</h4>
+
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">As we mentioned we place the customer first in all we do. That is why we offer a reliable service with the lowest price guaranteed. We do not trade ourselfs so your best interests are our best interests as well. That is why we have no hidden costs or hidden fees, we provide all our custumers with the best data available for them to make good decisions and strive to make the transfers as fast as possible (minutes not hous or days). Last but not least we provide safe guaranteed transfers so that you do not have to worry about failed transactions or online fraud.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2016</h4>
+                                    <h4 class="subheading">Expansion</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">The succes of our platform has made us want to expand our business in new areas. Stay tuned to find out what new services we will inaugurate in the near future.</p>
+                                    <a href="#">See news</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>Be Part
+                                    <br>Of Our
+                                    <br>Story!</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact">
@@ -275,11 +448,7 @@
 
 
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -292,8 +461,12 @@
 
     <!-- for the charts -->
     <script src="bower_components/Chart/Chart.min.js"></script>
+
+
     <!-- Custom Theme JavaScript -->
     <script src="js/agency.js"></script>
+
+
 
 </body>
 
