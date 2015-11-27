@@ -14,11 +14,9 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- google youtube webcomponents-->
-    <link rel="import" href="bower_components/google-youtube/google-youtube.html" media="screen" title="no title" charset="utf-8">
-
     <!-- Custom CSS -->
     <link href="css/agency.css" rel="stylesheet">
+    <link href="css/currencyConverter.css" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
@@ -42,10 +40,12 @@
     <!--My angular code -->
     <script src="js/app.js"></script>
 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.<!-- Angular -->
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.
+    -->
 
 </head>
 
@@ -63,7 +63,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">NBWM</a>
+                <a class="navbar-brand page-scroll" href="#page-top" style="display: flex; line-height: 1.3em"><img src="img/logos/nbwm-logo.png" style="width: 70px; height: 70px; margin-right: 1.5vw" /> Nederlandsche Betaal <br>& WisselMaatschappij</a>
 
             </div>
 
@@ -104,8 +104,8 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-heading">Banking Reinvented</div>
-                <div class="intro-lead-in">Companies save 30 to 40% on currency transactions</div>
+                <div class="intro-heading">CURRENCY CONVERSION REINVENTED</div>
+                <div class="intro-lead-in">Designing Great Customer Experience</div>
                 <a href="#login" class="page-scroll btn btn-xl">Get Started / Login</a>
                 <br>
                 <br>
@@ -116,51 +116,69 @@
     </header>
 
     <!-- Services Section -->
-    <section id="services">
+    <section id="services" ng-controller="CurrencyCalculatorController as currencyCtrl">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading" style="margin-bottom: 40px">Services</h2>
-                    
                 </div>
             </div>
+
             <div class="row text-center">
 
             <div class="col-lg-6">
-                    <h4>We garantee the best trade</h4>
-                    <br>
-                <div id="name" data-controller="quickdemo">
+                  <h4>We garantee the best trade</h4>
+                  <br>
+
+                <div id="currencyConverter">
 
                     <div class="input-group" >
-                        <input  type="text" data-model="name" class="form-control" id='input' placeholder="You're sending exactly">
+                        <input ng-model='currency' type="number" class="form-control" id='input' placeholder="You're sending exactly">
                       <div class="input-group-btn">
-                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-euro"></span> EUR <span class="caret"></span></button>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                          <li><a href="#"><span class="glyphicon glyphicon-euro"></span> EUR euro</a></li>
-                          <li><a href="#"><span class="glyphicon glyphicon-usd"></span> USD dollar</a></li>
-                          <li><a href="#"><span class="glyphicon glyphicon-gbp"></span> GBP pound</a></li>
-                          <li><a href="#"><span class="glyphicon glyphicon-yen"></span> YEN yen</a></li>
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-{{selectedCurrency}}">
+                              {{selectedCurrency}}
+                            </span>
+                            <span class="caret"></span>
+                          </button>
+                        <ul class="dropdown-menu noclose dropdown-menu-right">
+                          <li ng-repeat='currency in currencies'>
+                            <a href="" ng-click='selectedCurrencyIs(currency.name)' ng-model='currency.select'>
+                              <span class="select-{{currency.select}} glyphicon glyphicon-{{currency.name}}"></span>
+                              {{currency.name}}
+                            </a>
+                          </li>
                         </ul>
                       </div><!-- /btn-group -->
                     </div><!-- /input-group -->
-                      <br>
-                      <br>
-                    <div class="input-group">
-                      <input type="text" data-model="{{ dollar(name)}}" name='output' id="output" class="form-control" placeholder="Recipient receives">
-                      <div class="input-group-btn">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-usd"></span> USD <span class="caret"></span></button>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                          <li><a href="#"><span class="glyphicon glyphicon-usd"></span> USD dollar</a></li>
-                          <li><a href="#"><span class="glyphicon glyphicon-gbp"></span> GBP pound</a></li>
-                          <li><a href="#"><span class="glyphicon glyphicon-yen"></span> YEN yen</a></li>
-                          <li><a href="#"><span class="glyphicon glyphicon-euro"></span> EUR euro</a></li>
-                        </ul>
-                      </div><!-- /btn-group -->
-                    </div><!-- /input-group -->
-                    <p style="margin-top: 10px"> Real exchange rate: 1.0661 ( 9 minutes ago )</p>
-                    <p> Our Fee: $ 0</p>
 
-                </div>
+                      <br>
+                      <br>
+
+                    <div class="input-group" >
+                        <input value='{{ currency * 1.0661 | currency }}' type="text" class="form-control" id='output' placeholder="Recipient gets" ng-value='1000'>
+                      <div class="input-group-btn">
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-{{selectedCurrencyOutput}}">
+                              {{selectedCurrencyOutput}}
+                            </span>
+                            <span class="caret"></span>
+                          </button>
+                        <ul class="dropdown-menu noclose dropdown-menu-right">
+                          <li ng-repeat='c in currencies'>
+                            <a href="" ng-click='selectedCurrencyIs(c.name)' ng-model='currency.select'>
+                              <span class="select-{{currency.select}} glyphicon glyphicon-{{c.name}}"></span>
+                              {{c.name}}
+                            </a>
+                          </li>
+                        </ul>
+                      </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+
+                    <p style="margin-top: 10px"> Real exchange rate: 1.0661 ( 9 minutes ago )</p>
+
+              </div><!-- end div currencyConvertor -->
+
 
 
             </div><!-- /.col-lg-6 -->
@@ -170,20 +188,18 @@
                     <br>
                     <div class="col-md-6">
                         <h6>Our Fees</h6>
-                        <p style='color: rgb(22, 160, 133)'>$ 0</p>
-                        <h6>Our exchange rates</h6>
-                        <p style='color: rgb(22, 160, 133)'><i class="fa fa-eur"></i> 1 = <i class='fa fa-usd'></i> 1.07</p>
+                        <p style='color: rgb(22, 160, 133)'>{{ currency * 0.1 | currency }}</p>
+
                         <hr>
                     </div>
                     <div class="col-md-6">
                         <h6>Average Bank Fees</h6>
-                        <p style='color: rgb(192, 57, 43)'>$ 46.05</p>
-                        <h6>Average Bank exchange rates</h6>
-                        <p style='color: rgb(192, 57, 43)'><i class="fa fa-eur"></i> 1 = <i class='fa fa-usd'></i> 1.06</p>
+                        <p style='color: rgb(192, 57, 43)'>{{ currency * 0.3 | currency }}</p>
+
                         <hr>
                     </div>
 
-                    <h4> With us you save up to <span style='color: rgb(22, 160, 133)'> $ 41.55</span> </h4>
+                    <h4> With us you save up to <span style='color: rgb(22, 160, 133)'> {{currency * 0.3 - currency * 0.1 | currency}}</span> </h4>
                 </div> <!-- end big col-md-6 -->
 
             </div>
@@ -232,9 +248,10 @@
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="team-member">
-                      <google-youtube video-id="M6qMKpupAT4" height="270px" width="480px" rel="0" start="0" autoplay="0">
-                      </google-youtube>
+                    <div class="team-member" >
+                      <div class="embed-responsive embed-responsive-4by3">
+                        <iframe width="350" height="220" src="https://www.youtube.com/embed/M6qMKpupAT4" frameborder="0" allowfullscreen></iframe>
+                      </div>
                       <h4>Ira Jackson</h4>
                       <p class="text-muted">Lead Marketer</p>
                       <ul class="list-inline social-buttons">
@@ -249,8 +266,9 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                      <google-youtube video-id="ufJwn79JFyw" height="270px" width="480px" rel="0" start="0" autoplay="0">
-                      </google-youtube>
+                      <div class="embed-responsive embed-responsive-4by3">
+                        <iframe width="350" height="220" src="https://www.youtube.com/embed/pV32gJmYLgg" frameborder="0" allowfullscreen></iframe>
+                      </div>
                         <h4> Jan van Boorn</h4>
                         <p class="text-muted">Lead Marketer</p>
                         <ul class="list-inline social-buttons">
@@ -265,8 +283,9 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                      <google-youtube video-id="hSnD30bcAS8" height="270px" width="480px" rel="0" start="0" autoplay="0">
-                      </google-youtube>
+                      <div class="embed-responsive embed-responsive-4by3">
+                        <iframe width="350" height="220" src="https://www.youtube.com/embed/4u03sXLDjMs" frameborder="0" allowfullscreen></iframe>
+                      </div>
                         <h4>Pieter Pertersen</h4>
                         <p class="text-muted">Lead Marketer</p>
                         <ul class="list-inline social-buttons">
