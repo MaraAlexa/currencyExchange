@@ -1,4 +1,3 @@
-
 angular.module("currencyExchange", [])
 .controller('CurrencyCalculatorController', function ($scope) {
 
@@ -17,7 +16,6 @@ angular.module("currencyExchange", [])
 
         $scope.selectedCurrency = item;
       
-
 
     };
 

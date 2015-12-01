@@ -35,11 +35,10 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 
-// for the graphs - using charts.js
+// GRAPHS - using charts.js ----------------------------------------------------
 
 // Get context with jQuery - using jQuery's .get() method.
 var ctx = $("#myChart").get(0).getContext("2d");
-
 
 // data structure
 
