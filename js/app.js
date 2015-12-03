@@ -15,9 +15,16 @@ angular.module("currencyExchange", [])
     $scope.selectedCurrencyIs = function (item) {
 
         $scope.selectedCurrency = item;
-      
+
 
     };
 
 
+});
+
+
+// code for fancybox
+
+$(document).ready(function(){
+  $('.fancybox').fancybox();
 });

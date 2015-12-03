@@ -29,6 +29,15 @@
     <!-- Neccesary JS scripts -->
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <script src="bower_components/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <!--Add fancy box  -->
+    <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css" media="screen" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="bower_components/fancybox/source/helpers/jquery.fancybox-buttons.css" media="screen" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.css" media="screen" type="text/css" charset="utf-8">
+
+    <script type="text/javascript" src="bower_components/fancybox/source/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="bower_components/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
+    <script type="text/javascript" src="bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -130,13 +139,6 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h4 class="section-heading" style="margin-bottom: 20px">Comparison with the Average Bank</h4>
-                    <img src="img/barchartNBWM.svg" style="width: 50vw; height: 50vh" />
-                </div>
-            </div>
-
             <div class="row text-center">
 
             <div class="col-lg-6">
@@ -190,7 +192,7 @@
 
                     <p style="margin-top: 10px"> Real exchange rate: 1.0661 ( 9 minutes ago )</p>
 
-              </div><!-- end div currencyConvertor -->
+            </div><!-- end div currencyConvertor -->
 
 
 
@@ -214,7 +216,15 @@
 
                     <h4> With us you save up to <span style='color: rgb(22, 160, 133)'> {{currency * 0.3 - currency * 0.1 | currency}}</span> </h4>
                 </div> <!-- end big col-md-6 -->
-
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h4 class="section-heading" style="margin-bottom: 20px">Comparison with the Average Bank</h4>
+                <img src="img/graph-comparative-advantage-working.png" style="width: 50vw; height: 76vh" />
             </div>
         </div>
     </section>
@@ -361,7 +371,9 @@ investment services to businesses and private clients</p>
                         </li>
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/our-values.png" alt="">
+                                <a class='fancybox' rel='group' href="img/custFirst-big.jpg">
+                                    <img class="img-circle img-responsive" src="img/custFirst.jpg" alt="">
+                                </a>
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
