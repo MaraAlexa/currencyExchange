@@ -30,14 +30,8 @@
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <script src="bower_components/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-    <!--Add fancy box  -->
-    <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css" media="screen" type="text/css" charset="utf-8">
-    <link rel="stylesheet" href="bower_components/fancybox/source/helpers/jquery.fancybox-buttons.css" media="screen" type="text/css" charset="utf-8">
-    <link rel="stylesheet" href="bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.css" media="screen" type="text/css" charset="utf-8">
-
+    <!--Needed for the Real Exchange Rate Graph  -->
     <script type="text/javascript" src="bower_components/fancybox/source/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript" src="bower_components/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
-    <script type="text/javascript" src="bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -218,7 +212,55 @@
                 </div> <!-- end big col-md-6 -->
             </div>
         </div>
-        <br><br><br>
+        <br><br><br><br><br>
+
+
+    <!-- Call To Action Here -->
+  <div class="container">
+
+    <h2 class="section-heading text-center" style="margin-bottom: 40px">Make a transaction</h2>
+
+    <div class="row" id="ctaRow">
+      <div class="group">
+        <div class="col-md-6 col-lg-12">
+          <input class='ctaInput' type="text" required>
+          <span class="highlightCta"></span>
+          <span class="bar"></span>
+          <label class="labelCta">Name</label>
+          <small>Nice to meet you!</small>
+        </div>
+
+      </div>
+
+      <div class="group">
+        <div class="col-md-6 col-lg-12">
+          <input class='ctaInput' type="text" required>
+          <span class="highlightCta"></span>
+          <span class="bar"></span>
+          <label class="labelCta">Email</label>
+          <small>Fill in to get the current rates of exchange</small>
+        </div>
+
+      </div>
+
+      <div class="group">
+        <div class="col-md-6 col-lg-12">
+          <input class='ctaInput' type="number" required>
+          <span class="highlightCta"></span>
+          <span class="bar"></span>
+          <label class="labelCta">Phone</label>
+          <small>Put in your number and an expert will call you in no time!</small>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center">
+      <button type="submit" class='btn btn-xl' id='ctaBtn' name="button">Submit</button>
+    </div>
+  </div>
+
+
   <!-- GRAPH
 
         <div class="row">
@@ -241,7 +283,7 @@
             <h1 style="text-align: center; margin-bottom: 40px;">The real exchange rate</h1>
             <div class="col-lg-6">
                 <h5 style="text-align: center">For 1 euro you get 1.0661 USD </h5>
-                <canvas id="myChart" width="600" height="400"></canvas>
+                <canvas style='margin: 0 auto;' id="myChart" width="600" height="400"></canvas>
                 <h6 style="text-align: center">Evolution Euro against the Dollar</h6>
             </div>
             <div class="col-lg-5 col-lg-offset-1">
@@ -470,7 +512,7 @@ investment services to businesses and private clients</p>
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading" style="color: white;">Fill in your details and we will contact you in no time!</h3>
                 </div>
             </div>
             <div class="row">
