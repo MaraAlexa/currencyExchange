@@ -21,10 +21,3 @@ angular.module("currencyExchange", [])
 
 
 });
-
-
-// code for fancybox
-
-$(document).ready(function(){
-  $('.fancybox').fancybox();
-});

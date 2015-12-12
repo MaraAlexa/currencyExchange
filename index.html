@@ -43,6 +43,8 @@
     <!--My angular code -->
     <script src="js/app.js"></script>
 
+    <!-- Lib to validate user input! -->
+    <script src="//raw.github.com/jpillora/verifyjs/gh-pages/dist/verify.notify.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -220,43 +222,72 @@
 
     <h2 class="section-heading text-center" style="margin-bottom: 40px">Make a transaction</h2>
 
-    <div class="row" id="ctaRow">
-      <div class="group">
-        <div class="col-md-6 col-lg-12">
-          <input class='ctaInput' type="text" required>
-          <span class="highlightCta"></span>
-          <span class="bar"></span>
-          <label class="labelCta">Name</label>
-          <small>Nice to meet you!</small>
+    <form class="" action="index.html" method="post">
+      <div class="row" id="ctaRow">
+        <div class="group">
+          <div class="col-md-6 col-lg-12">
+            <input class='ctaInput' type="text" required>
+            <span class="highlightCta"></span>
+            <span class="bar"></span>
+            <label class="labelCta">Name</label>
+            <small>Nice to meet you!</small>
+          </div>
+
         </div>
 
-      </div>
+        <div class="group">
+          <div class="col-md-6 col-lg-12">
+            <input class='ctaInput' type="text" data-validate='email' required>
+            <span class="highlightCta"></span>
+            <span class="bar"></span>
+            <label class="labelCta">Email</label>
+            <small>Fill in to get the current rates of exchange</small>
 
-      <div class="group">
-        <div class="col-md-6 col-lg-12">
-          <input class='ctaInput' type="text" required>
-          <span class="highlightCta"></span>
-          <span class="bar"></span>
-          <label class="labelCta">Email</label>
-          <small>Fill in to get the current rates of exchange</small>
+            <div role="alert">
+              <span class="error" ng-show="myForm.input.$error.required">
+                Required!</span>
+              <span class="error" ng-show="myForm.input.$error.email">
+                Not valid email!</span>
+            </div>
+          </div>
+
         </div>
 
-      </div>
-
-      <div class="group">
-        <div class="col-md-6 col-lg-12">
-          <input class='ctaInput' type="number" required>
-          <span class="highlightCta"></span>
-          <span class="bar"></span>
-          <label class="labelCta">Phone</label>
-          <small>Put in your number and an expert will call you in no time!</small>
+        <div class="group">
+          <div class="col-md-6 col-lg-12">
+            <input class='ctaInput' type="number" required>
+            <span class="highlightCta"></span>
+            <span class="bar"></span>
+            <label class="labelCta">Phone</label>
+            <small>Put in your number and an expert will call you in no time!</small>
+          </div>
         </div>
-      </div>
-
-
     </div>
+    </form>
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center">
-      <button type="submit" class='btn btn-xl' id='ctaBtn' name="button">Submit</button>
+      <button type="submit" class='btn btn-primary btn-xl' data-toggle='modal' data-target='#infoSentModal' id='ctaBtn' name="button">Submit</button>
+      <br><br>
+      <p>
+        <b>Already a member?  <a href="">Log in here</a></b>
+      </p>
+
+      <!-- Modal - got the details of the new customer -->
+      <div class="modal fade" id="infoSentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Thank you!</h4>
+            </div>
+            <div class="modal-body">
+              <h6>One of our experts will contact you soon</h6>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

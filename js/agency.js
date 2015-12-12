@@ -15,6 +15,17 @@ $(function() {
     });
 
 
+  $('#ctaBtn').on('click', function () {
+    $('.ctaInput').val('');
+  });
+
+  $('#infoSentModal').on('shown.bs.modal', function () {
+    //$('#infoSentModal').modal('hide');
+  });
+
+
+// GRAPH EURO VALUE IN THE LAST 30 DAYS
+
     var myLineChart = new Chart(ctx).Line(data, {
     	scaleLabel: "<%=value%>",
     	scaleOverride: true,
