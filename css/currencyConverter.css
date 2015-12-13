@@ -1,3 +1,17 @@
+/* my styling for the logo */
+
+a#logo_link {
+  display: flex;
+  line-height: 1.3em
+  color: #F46613;
+}
+
+#logo_img {
+  width: 70px;
+  height: 70px;
+  margin-right: 1.5vw;
+}
+
 /* small text made smaller */
 
 small {

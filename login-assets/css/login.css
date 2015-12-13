@@ -70,7 +70,8 @@
     z-index: 2;
 }
 #register-navbar a{
-    color: #fed136;
+    color: #F46613;
+    font-weight: bold;
 }
 .register-background{
     background-image: url('../paper_img/autumn.jpg');
