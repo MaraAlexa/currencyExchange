@@ -10,9 +10,11 @@ a#logo_link {
 }
 
 #logo_img {
-  width: 70px;
-  height: 70px;
-  margin-right: 20px;
+  width: 350px;
+  height: 42px;
+  margin-right: -80px;
+  margin-top: -10px;
+  margin-left: 30px;
 }
 
 /* small text made smaller */
@@ -22,6 +24,8 @@ small {
   color: gray;
 
 }
+
+
 
 /* get info and submit form part */
 
@@ -44,6 +48,28 @@ small {
     align-items: center;
   }
 }
+/*reajusting the navbar*/
+.phoneNumber {
+  color: 	 white;
+  font-size: 14px;
+  margin-left: 50px;
+  margin-top: 8px;
+  border: 2px solid white;
+  padding: 5px;
+  background-color: orange;
+}
+
+.phoneNumber span {
+  font-weight: bold;
+
+}
+
+@media(min-width:1200px){
+  .container {
+    width: 80vw;
+  }
+}
+
 
 /* Call to action CSS styles */
 
