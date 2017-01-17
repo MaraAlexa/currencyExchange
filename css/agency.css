@@ -16,7 +16,7 @@ body {
 
 
 .text-primary {
-    color:#FF7900;
+    color:#ec671a;
 }
 
 p {
@@ -37,14 +37,15 @@ a.active {
 }
 
 a {
-    color:#FF7900;
+    color:#ec671a;
+    border: 3px solid transparent;
 }
 
 a:hover,
 a:focus,
 a:active,
 a.active {
-    color: #F26722;
+  border-radius: 5px;
 }
 
 h1,
@@ -121,14 +122,15 @@ fieldset[disabled] .btn-primary.active {
 
 .btn-xl {
     padding: 20px 40px;
-    border-color:#FF7900;
+    border:3px solid #dedddc;
     border-radius: 3px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: #fff;
-    background-color:#FF7900;
+    background: #ec671a; /* fallback for old browsers */
+
 }
 
 .btn-xl:hover,
@@ -136,9 +138,9 @@ fieldset[disabled] .btn-primary.active {
 .btn-xl:active,
 .btn-xl.active,
 .open .dropdown-toggle.btn-xl {
-    border-color: #f6bf01;
+    border-color: whitesmoke;
     color: #fff;
-    background-color: #F26722;
+    background-color: #dc5709;
 }
 
 .btn-xl:active,
@@ -194,7 +196,7 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default .navbar-toggle {
     border-color:#FF7900;
-    background-color:#FF7900;
+    background-color:#ec671a;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -212,18 +214,21 @@ fieldset[disabled] .btn-xl.active {
     font-weight: 400;
     letter-spacing: 1px;
     color: #fff;
+
 }
 
 .navbar-default .nav li a:hover,
 .navbar-default .nav li a:focus {
     outline: 0;
-    color:#FF7900;
+    color:#dc5709;
+    /*background: gray;*/
+
 }
 
 .navbar-default .navbar-nav>.active>a {
     border-radius: 0;
     color: #fff;
-    background-color:#FF7900;
+    background-color:#ec671a;
 }
 
 .navbar-default .navbar-nav>.active>a:hover,
@@ -498,7 +503,7 @@ section h3.section-subheading {
     border-radius: 100%;
     text-align: center;
     color: #fff;
-    background-color:#FF7900;
+    background-color:#ec671a;
 }
 
 .timeline>li .timeline-image h4 {
